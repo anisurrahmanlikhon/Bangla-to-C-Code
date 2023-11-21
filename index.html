@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">  
+  <title>Bangla to C Code Converter</title>
+    <style>
+        body {
+            font-family: Open Sans;
+            margin: 0 auto;
+            padding: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-centent: center;
+            align-items: center;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin: 10px 0;
+        }
+        .c-convert {
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #006AB5;
+            color: white;
+            padding: 10px 10px;
+            border-radius: 5px;
+            margin: 10px;
+            outline: none;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .c-convert:hover{
+           opacity: 50%
+        }
+        copy-button:hover{
+            opacity: 50% 
+        }
+        code {
+            white-space: pre-wrap;
+        }
+        .banglaCode{
+            padding:10px;
+        }
+        .copy-button{
+          background: white;
+          border: none;
+          font-size: 22px;
+          cursor: pointer;
+        }
+        .code-container{
+          display: flex;
+          justify-content: space-between;
+          width: 100%
+        }
+      .code-area{
+        background: #151515;
+        border: none;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        width: 100%;
+      }
+      .copy-text{
+        font-size: 10px;
+        color: black;
+      }
+      .code-render{
+        height: 150px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scroll: auto
+      }
+    </style>
+</head>
+<body>
+     <h1 style="color: #006AB5;">Bangla to C Code Converter</h1>
+    <label class="banglaCode" >Enter Bangla Code:</label>
+    <textarea id="banglaCode" placeholder="Enter your Bangla code here..." class= "code-area"></textarea>
+    <button onclick="convertToC()" class="c-convert">Convert to C Code</button>
+    <div class ="code-container">
+        <h2>Converted C Code:</h2>
+        <button onclick="copyToClipboard()" class="copy-button">📋<span class"copy-text">copy</button>
+    </div>
+    <div class= "code-area code-render">
+    <code id="convertedCode" contenteditable="true" readonly ></code>
+    </div>
+      <br><br>
+      <a href="https://anisurrahmanlikhon.github.io/Bangla-C-Language/" target= _blank class="c-convert">📖 Documentation</a>
+      
+      
+      <script>
+        function convertToC() {
+            const banglaCode = document.getElementById('banglaCode').value;
+            const convertedCode = translateToC(banglaCode);
+            document.getElementById('convertedCode').innerText = convertedCode;
+        }
+
+        function translateToC(banglaCode) {
+            // Replace Bangla keywords with corresponding C keywords
+            const mapping = {
+                '# অন্তর্ভুক্ত': '#include',
+                '< স্ট্যান্ডার্ড_ইন_আউট.হেডার >': '<stdio.h>',
+                'অন্তর্ভুক্ত': '#include',
+                'স্ট্যান্ডার্ড_ইন_আউট.হেডার': '<stdio.h>',
+                'পূর্ণ': 'int',
+                'মৌলিক': 'main',
+                'দেখাও': 'printf',
+                'ফেরত': 'return',
+                '০': '0',
+                '১': '1',
+                '২': '2',
+                '৩': '3',
+                '৪': '4',
+                '৫': '5',
+                '৬': '6',
+                '৭': '7',
+                '৮': '8',
+                '৯': '9',
+                'নাও': 'scanf',
+                '%প': '%d',
+                'দশম': 'float',
+                'বর্ণ': 'char',
+                'ডাবল': 'double',
+                'বর্ণ অ্যারে': 'char array[]',
+                '%দ': '%f',
+                '%ব': '%c',
+                '%লব': '%lf',
+                '%স': '%s',
+                'যদি': 'if',
+                'নাহলে যদি': 'else if',
+                'নাহলে': 'else',
+				'ফর': 'for',
+                'যতক্ষণ': 'while',
+                '\নিউ': '\n',
+                '//': '//',
+                '=': '=',
+				
+            };
+
+            // Replace Bangla words with English keywords
+            for (const [banglaWord, englishWord] of Object.entries(mapping)) {
+                banglaCode = banglaCode.replace(new RegExp(banglaWord, 'g'), englishWord);
+            }
+
+            // Translate Bangla sentences in double quotation to English
+            banglaCode = banglaCode.replace(/"([^"]*)"/g, (match, p1) => `"${translateToC(p1)}"`);
+
+            return banglaCode;
+        }
+      
+        function copyToClipboard() {
+                const convertedCode = document.getElementById('convertedCode');
+                const range = document.createRange();
+                range.selectNode(convertedCode);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                document.execCommand('copy');
+                window.getSelection().removeAllRanges();
+                alert('Code copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
