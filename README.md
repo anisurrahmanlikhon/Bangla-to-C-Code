@@ -5,8 +5,6 @@
 [```Bangla C Language```](https://anisurrahmanlikhon.github.io/Bangla-C-Language/)
 
 
-# বাংলা সি ভাষা
-
 ### সিনট্যাক্স 
 
 ```
