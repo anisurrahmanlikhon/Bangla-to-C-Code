@@ -1,5 +1,5 @@
 # Github Page: 
-[```Bangla Code to Code Converter```](https://anisurrahmanlikhon.github.io/Bangla-Code-to-C-Converter/)
+[<b>```Bangla Code to C Code Converter```</b>](https://anisurrahmanlikhon.github.io/Bangla-Code-to-C-Converter/)
 # ডকুমেন্টেশন
 
 <img src="bangla.png">
