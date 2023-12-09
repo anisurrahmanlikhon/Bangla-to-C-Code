@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,6 +17,7 @@
 			flex-direction: column;
 			justify-centent: center;
 			align-items: center;
+
 		}
 
 		textarea {
@@ -87,11 +89,78 @@
 			overflow-y: auto;
 			scroll: auto
 		}
+		h1 {
+      color: #399dd3;
+    }
+
+    label {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    textarea {
+      width: 80%;
+      height: 300px;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      background-color: black;
+      color: white;
+      ::placeholder {
+        /* Set placeholder color to white */
+        color: white;
+      }
+    }
+
+    button {
+      background-color: #87CEEB;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #5F9EA0;
+    }
+
+    #output-container {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+	  height: 300px;
+    }
+
+    #output-heading {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: #399dd3;
+	  height: 300px;
+    }
+
+    #output {
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      white-space: pre-wrap;
+	  height: 300px;
+    }
+
 	</style>
 </head>
 
 <body>
 	<center><h1 style="color: #006AB5;">Bangla to C Code Converter</h1></center>
+
 	<label class="banglaCode">Enter Bangla Code:</label>
 	<textarea id="banglaCode" placeholder="Enter your Bangla code here..." class="code-area"></textarea>
 	<button onclick="convertToC()" class="c-convert">Convert to C Code</button>
@@ -101,11 +170,7 @@
 	</div>
 	<div class="code-area code-render">
 		<code id="convertedCode" contenteditable="true" readonly></code>
-	</div> <a href="https://www.programiz.com/c-programming/online-compiler/" target=_blank class="c-convert"> ▶️ Run</a> <br>
-	<a href="https://github.com/anisurrahmanlikhon/Bangla-Code-to-C-Converter/blob/main/README.md" target=_blank class="c-convert">📖
-		Documentation</a>
-	<a href="https://github.com/anisurrahmanlikhon/" target=_blank class="c-convert">👤 About Me</a>
-
+	</div>
 
 	<script>
 		function convertToC() {
@@ -228,6 +293,64 @@
 			alert('Code copied to clipboard!');
 		}
 	</script>
+
+
+<center><h1>C Code Compiler</h1></center>
+
+<label for="code">Enter C code:</label>
+<textarea id="code" rows="10" cols="50" placeholder="Paste Converted C code here"></textarea>
+
+<button onclick="compileCode()">Compile</button>
+
+<div id="output-container">
+  <h1 id="output-heading">C Code Output</h1>
+  <div id="output"></div>
+</div>
+
+<script>
+  async function compileCode() {
+	const code = document.getElementById('code').value;
+
+	const options = {
+	  method: 'POST',
+	  url: 'https://c-code-compiler.p.rapidapi.com/',
+	  headers: {
+		'content-type': 'application/json',
+		'X-RapidAPI-Key': '059e19d109msh388b2f588819fb7p12bd72jsn81fbeb8be6a3',
+		'X-RapidAPI-Host': 'c-code-compiler.p.rapidapi.com'
+	  },
+	  data: {
+		code: code,
+		version: 'latest'
+	  }
+	};
+
+	try {
+	  const response = await axios.request(options);
+	  const output = document.getElementById('output');
+	  output.innerHTML = '<pre>' + response.data.output + '</pre>';
+	} catch (error) {
+	  console.error('Error:', error);
+	}
+  }
+</script>
+
+<!-- Include Axios library -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<br>
+<br>
+<br>
+<a href="https://github.com/anisurrahmanlikhon/Bangla-Code-to-C-Converter/blob/main/README.md" target=_blank class="c-convert">📖
+	Documentation</a>
+<a href="https://github.com/anisurrahmanlikhon/" target=_blank class="c-convert">👤 About Me</a>
+
+<br>
+<br>
+<br>
+
+
+	
+
 </body>
 
 </html>
