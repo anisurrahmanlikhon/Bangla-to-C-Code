@@ -306,36 +306,34 @@
   <h1 id="output-heading">C Code Output</h1>
   <div id="output"></div>
 </div>	
- <script>
-        async function compileCode() {
-            const code = document.getElementById('code').value;
+	
+<script>
+  async function compileCode() {
+	const code = document.getElementById('code').value;
 
-            const options = {
-                method: 'POST',
-                url: 'https://code-compiler10.p.rapidapi.com/',
-                headers: {
-                    'content-type': 'application/json',
-                    'x-compile': 'rapidapi',
-                    'X-RapidAPI-Key': '059e19d109msh388b2f588819fb7p12bd72jsn81fbeb8be6a3',
-                    'X-RapidAPI-Host': 'code-compiler10.p.rapidapi.com',
-                },
-                data: {
-                    lang: 'c',
-                    code: code,
-                    input: ''
-                }
-            };
+	const options = {
+	  method: 'POST',
+	  url: 'https://c-code-compiler.p.rapidapi.com/',
+	  headers: {
+		'content-type': 'application/json',
+		'X-RapidAPI-Key': '059e19d109msh388b2f588819fb7p12bd72jsn81fbeb8be6a3',
+		'X-RapidAPI-Host': 'c-code-compiler.p.rapidapi.com'
+	  },
+	  data: {
+		code: code,
+		version: 'latest'
+	  }
+	};
 
-            try {
-                const response = await axios.request(options);
-                const output = document.getElementById('output');
-                output.innerHTML = '<pre>' + response.data.output + '</pre>';
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
-    </script>
-
+	try {
+	  const response = await axios.request(options);
+	  const output = document.getElementById('output');
+	  output.innerHTML = '<pre>' + response.data.output + '</pre>';
+	} catch (error) {
+	  console.error('Error:', error);
+	}
+  }
+</script>
 
 <!-- Include Axios library -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
