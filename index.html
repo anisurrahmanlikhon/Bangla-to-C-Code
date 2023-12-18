@@ -307,7 +307,7 @@
   <div id="output"></div>
 </div>
 
-<script>
+<!--<script>
   async function compileCode() {
 	const code = document.getElementById('code').value;
 
@@ -336,7 +336,42 @@
 </script>
 
 <!-- Include Axios library -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
+	
+ <script>
+        async function compileCode() {
+            const code = document.getElementById('code').value;
+
+            const options = {
+                method: 'POST',
+                url: 'https://code-compiler10.p.rapidapi.com/',
+                headers: {
+                    'content-type': 'application/json',
+                    'x-compile': 'rapidapi',
+                    'X-RapidAPI-Key': '059e19d109msh388b2f588819fb7p12bd72jsn81fbeb8be6a3',
+                    'X-RapidAPI-Host': 'code-compiler10.p.rapidapi.com',
+                },
+                data: {
+                    lang: 'c',
+                    code: code,
+                    input: ''
+                }
+            };
+
+            try {
+                const response = await axios.request(options);
+                const output = document.getElementById('output');
+                output.innerHTML = '<pre>' + response.data.output + '</pre>';
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+
+
+<!-- Include Axios library -->
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <br>
 <br>
 <br>
