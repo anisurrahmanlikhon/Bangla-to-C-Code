@@ -133,15 +133,17 @@
 
 	const options = {
 	  method: 'POST',
-	  url: 'https://c-code-compiler.p.rapidapi.com/',
+	  url: 'https://c-code-compiler10.p.rapidapi.com/',
 	  headers: {
 		'content-type': 'application/json',
 		'X-RapidAPI-Key': '059e19d109msh388b2f588819fb7p12bd72jsn81fbeb8be6a3',
-		'X-RapidAPI-Host': 'c-code-compiler.p.rapidapi.com'
+		'X-RapidAPI-Host': 'c-code-compiler10.p.rapidapi.com'
 	  },
 	  data: {
+		lang : 'c',
 		code: code,
 		version: 'latest'
+		input: '',
 	  }
 	};
 
