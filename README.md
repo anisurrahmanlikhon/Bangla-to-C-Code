@@ -777,9 +777,9 @@ Library Function
 }
 ```
 
-### বাংলা থেকে সি কনভার্টার
+### বাংলা সি ভাষা থেকে নির্মিত
 
-[<b>```বাংলা থেকে সি কনভার্টার```</b>](https://bangla-code-to-c-code-coverter.mdanisuranisur.repl.co/)
+[<b>```বাংলা সি ভাষা```</b>](https://github.com/anisurrahmanlikhon/Bangla-C-Language)
 
 ### বা</>কোডিং- বাংলায় কোডিং শিখুন
 ```জাভা স্ক্রিপ্ট``` সম্বলিত, ```চা-স্ক্রিপ্ট``` থেকে নির্মিত আমার [<b>```বা</>কোডিং```</b>](https://anisurrahmanlikhon.github.io/Ba-Coding/)
