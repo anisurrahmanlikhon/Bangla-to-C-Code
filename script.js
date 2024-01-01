@@ -143,31 +143,7 @@
 
 
 
-  async function compileCode() {
-	const code = document.getElementById('code').value;
-
-	const options = {
-	  method: 'POST',
-	  url: 'https://c-code-compiler.p.rapidapi.com/',
-	  headers: {
-		'content-type': 'application/json',
-		'X-RapidAPI-Key': '059e19d109msh388b2f588819fb7p12bd72jsn81fbeb8be6a3',
-		'X-RapidAPI-Host': 'c-code-compiler.p.rapidapi.com'
-	  },
-	  data: {
-		code: code,
-		version: 'latest'
-	  }
-	};
-
-	try {
-	  const response = await axios.request(options);
-	  const output = document.getElementById('output');
-	  output.innerHTML = '<pre>' + response.data.output + '</pre>';
-	} catch (error) {
-	  console.error('Error:', error);
-	}
-  }
+  
 
 
 
