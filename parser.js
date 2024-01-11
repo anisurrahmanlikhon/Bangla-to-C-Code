@@ -118,6 +118,8 @@ function convertToC() {
 			banglaCode = banglaCode.replace(/"([^"]*)"/g, (match, p1) => `"${translateToC(p1)}"`);
 			return banglaCode;
 		}
+
+
 		function copyToClipboard() {
         const convertedCode = document.getElementById('convertedCode');
         const codeTextarea = document.getElementById('code');
