@@ -1,11 +1,8 @@
-
-		
-		function convertToC() {
+function convertToC() {
 			const banglaCode = document.getElementById('banglaCode').value;
 			const convertedCode = translateToC(banglaCode);
 			document.getElementById('convertedCode').innerText = convertedCode;
 		}
-
 		function translateToC(banglaCode) {
 			// Replace Bangla keywords with corresponding C keywords
 			const mapping = {
@@ -16,12 +13,10 @@
 				'< গণিত.হেডার >': '<math.h>',
 				'< স্ট্রিং.হেডার >': '<string.h>',
 				'< স্ট্যান্ডার্ড_বুলিয়ান.হেডার >': '<stdbool.h>',
-
 				'মৌলিক': 'main',
 				'নাও': 'scanf',
 				'দেখাও': 'printf',
 				'ফেরত': 'return',
-
 				'০': '0',
 				'১': '1',
 				'২': '2',
@@ -32,13 +27,10 @@
 				'৭': '7',
 				'৮': '8',
 				'৯': '9',
-
 				'পূর্ণ': 'int',
 				'দশম': 'float',
 				'বর্ণ': 'char',
 				'ডাবল': 'double',
-
-
 				'%প': '%d',
 				'%দ': '%f',
 				'%ব': '%c',
@@ -51,14 +43,12 @@
 				'%যাই': '%zu',
 				'ঘদ': 'f',
 				
-
             
                                 'যদি': 'if',
 				'নাহলে': 'else',
 				'লুপ': 'for',
 				'যতক্ষণ': 'while',
 				'করো': 'do',
-
 				'থামো': 'break',
 				'বাদ': 'continue',
 				'সুইচ': 'switch',
@@ -66,7 +56,6 @@
 				'ডিফল্ট': 'default',
 				'লাফ_দাও': 'goto',
 				'লেবেল': 'lebel',
-
 				'অটো': 'auto',
 				'স্ট্রাক্ট': 'struct',
 				'লম্বা': 'long',
@@ -83,12 +72,10 @@
 				'ভুলাটাইল': 'volatile',
 				'চিহ্ন': 'signed',
 				'প্রতীকহীন': 'unsigned',
-
 				'সত্য': 'true',
 				'মিথ্যা': 'false',
 				'বুল': '_Bool',
 				'নাল': 'NULL',
-
 				'অক্ষর_নিব': 'getchar',
 				'অক্ষর_দেখাব': 'putchar',
 				'বাক্য_লই': 'gets',
@@ -97,7 +84,6 @@
 				'বাকপি': 'strcpy',
 				'বাকেট':'strcat',
 				'বাকম': 'strcmp',
-
 				'সর্বোচ্চ':'ceil',
 				'সর্বনিম্ন':'floor',
 				'রাউন্ড':'round',
@@ -112,31 +98,29 @@
 				'ভুজ': 'sin',
 				'কোটি':'cos',
 				'স্পর্শক': 'tan',	
-				
-				'নথিপত্র': 'FILE',
-				'নথি: 'f',
-				'পড়া_মুড':'r',
-				'লেখা_মুড':'w',
-				'পড়ো': 'read',
-				'লিখো': 'write',
-				
-			};
 
+				'নথি': 'FILE',
+				'পড়ার_মুড':'r',
+				'লেখার_মুড':'w',
+				'নথি_দেখাও': 'fscanf',
+				'নথি_নাও': 'fprintf',
+				'নথি_পড়ো': 'fread',
+				'নথিতে_লিখো': 'fwrite',
+
+			};
+    
+  
 			// Replace Bangla words with English keywords
 			for (const [banglaWord, englishWord] of Object.entries(mapping)) {
 				banglaCode = banglaCode.replace(new RegExp(banglaWord, 'g'), englishWord);
 			}
-
 			// Translate Bangla sentences in double quotation to English
 			banglaCode = banglaCode.replace(/"([^"]*)"/g, (match, p1) => `"${translateToC(p1)}"`);
-
 			return banglaCode;
 		}
-
 		function copyToClipboard() {
         const convertedCode = document.getElementById('convertedCode');
         const codeTextarea = document.getElementById('code');
-
         // Copy code to clipboard
         const range = document.createRange();
         range.selectNode(convertedCode);
@@ -145,16 +129,6 @@
         document.execCommand('copy');
         window.getSelection().removeAllRanges();
         alert('Copy the code');
-
         // Paste the copied code into the compiler textarea
         codeTextarea.value = convertedCode.innerText;
     }
-
-
-
-  
-
-
-
-
-
