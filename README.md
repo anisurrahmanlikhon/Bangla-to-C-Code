@@ -816,7 +816,7 @@ gets(), puts():
 {
   নথিপত্র *inputFile, *outputFile;
   পূর্ণ a, b;
-  input = নথিখোলা("input.txt", "পড়া_মুড");
+  inputFile = নথিখোলা("input.txt", "পড়া_মুড");
   যদি (inputFile == নাল)
      {
        দেখাও("নথিপত্র খুলতে ত্রুটি হচ্ছে");
