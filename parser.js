@@ -105,6 +105,8 @@ function convertToC() {
 				'লেখা_মুড':'w',
 				'পড়ো': 'read',
 				'লিখো': 'write',
+				'খোলা': 'open',
+				'বন্ধ': 'close',
 
 			};
     
