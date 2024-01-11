@@ -112,6 +112,15 @@
 				'ভুজ': 'sin',
 				'কোটি':'cos',
 				'স্পর্শক': 'tan',	
+				
+				'নথি': 'FILE',
+				'পড়ার_মুড':'r',
+				'লেখার_মুড':'w',
+				'নথিতে_নাও': 'fscanf',
+				'নথি_দেখাও': 'fprintf',
+				'নথি_পড়ো': 'fread',
+				'নথিতে_লিখো': 'fwrite',
+				
 			};
 
 			// Replace Bangla words with English keywords
