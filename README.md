@@ -842,6 +842,8 @@ output = নথিখোলা("output.txt", "লেখা_মুড");
     ফেরত ০;
 }
 ```
+নথিপত্রের কেডটি সি কোডে কনভার্ট করে [এখানে](https://www.browxy.com/) রান করো।
+
 ### বাংলা সি ভাষা থেকে নির্মিত
 
 [<b>```বাংলা সি ভাষা```</b>](https://github.com/anisurrahmanlikhon/Bangla-C-Language)
