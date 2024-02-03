@@ -21,7 +21,7 @@ window.addEventListener('load', function() {
   $textarea = document.getElementById('textarea-input');
   $highlight = document.getElementById('highlight-area');
 
-  var code = `// এখানে বাংলা সি কোড লিখো
+  var code = `// এখানে বাংলা সি কোড লেখো
 # অন্তর্ভুক্ত < স্ট্যান্ডার্ড_ইন_আউট.হেডার >
 # অন্তর্ভুক্ত < স্ট্যান্ডার্ড_লাইব্রেরি.হেডার >
 
