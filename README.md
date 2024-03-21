@@ -846,7 +846,7 @@ gets(), puts():
 ```
 <b>নথিপত্রের কেডটি সি কোডে কনভার্ট করে</b> [```এখানে```](https://www.browxy.com/) রান করতে হবে।
 
-### বাংলা সি ভাষা থেকে নির্মিত
+### বাংলা সি ভাষা রিপোজিটরী
 
 [<b>```বাংলা সি ভাষা```</b>](https://github.com/anisurrahmanlikhon/Bangla-C-Language)
 
